@@ -12,9 +12,11 @@ namespace WebUserAuth.Controllers
 	{
 		public ActionResult Index()
 		{
+            ViewBag.IsAdmin = User.IsInRole("Admin"); 
 			return View();
 		}
 
+        [Authorize(Roles="Admin")]
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
